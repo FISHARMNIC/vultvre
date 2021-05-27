@@ -23,18 +23,16 @@ page.Input({bindto?, type?, dummy?, extra?})
 page.Button(view, {action?, dummy?})
 
 page.Break({amount?})
-
-page.script(code)
 ```
-id
+## id
 - Used for binding
-dummy
+## dummy
 - Used to represent a view in a button/link
 - Ex. `page.Button( page.Text("hello", {dummy:true}) )` <- creates the button with the text inside it
-extra
+## extra
 - Used for any extra css selectors 
 - Such as `hidden`, `style`, etc.
-action
+## action
 - The action for a button
 - Must be represented as an anonymous function (`function(){code}`)
   - Ex. 
@@ -46,3 +44,18 @@ action
     }
   ) 
   ```
+---
+## Scripting
+- This adds custom scripts to your html page!
+- It can be done with `page.script(code)`
+ - `code` must be an anonymous function
+ - Ex. `page.script(function(){console.log('epic custom scripts')})`
+## Binding
+- Bindings must be done with a class called `bindObj` (already included)
+- creating bindable variables are done like this: `var name = new bindObj(action?)`
+ - `action` is optional, and supports two-way bindings
+  - It will run the following function whenever the variable's value is changed
+ - `action` must also be a anon. function
+ - To change a bindable var's value, use `var.value`
+  - This supports get and set
+   - so `var.value = "10"` and `console.log(var.value)` work
