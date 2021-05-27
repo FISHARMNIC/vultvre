@@ -1,0 +1,46 @@
+
+        <div><span>Please enter your name</span></div> <input id="0" onkeyup="update0()"> <br> <div><span>Please enter a password</span></div> <input id="1" onkeyup="update1()" type="password"> <button onclick="        toggle_pass()
+    "><div><span>show</span></div></button> <div id="password_show" hidden="true" ><span></span></div> <br><br> <button><div><span>enter</span></div></button>
+        <script>
+        class bindObj {
+            constructor(action = function(){console.log('none')}) {
+                this.action = action
+                this.varval
+            }
+            get value() {
+                return this.varval
+            }
+            set value(val) {
+                this.varval = val
+                this.action()
+                forceall()
+            }
+        }
+        function forceall(){
+            for (i = 0; i < 0; i++) {
+                eval(`force${i}()`)
+            }
+        }
+
+        function id(mid) {
+            return document.getElementById(mid)
+        }
+        
+            function update0() {
+                username.value = document.getElementById("0").value
+            }
+             
+            function update1() {
+                password.value = document.getElementById("1").value
+            }
+             
+                 var username = new bindObj()
+    var password = new bindObj(function(){id("password_show").innerHTML = password.value})
+
+    function toggle_pass() {
+        id("password_show").hidden = !(id("password_show").hidden)
+        console.log("toggle")
+    }
+
+        </script>
+            
