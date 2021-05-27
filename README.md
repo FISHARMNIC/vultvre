@@ -47,6 +47,7 @@ page.Break({amount?})
 ---
 ## Scripting
 - This adds custom scripts to your html page!
+  - This can include you bindings etc.
 - It can be done with `page.script(code)`
  - `code` must be an anonymous function
  - Ex. `page.script(function(){console.log('epic custom scripts')})`
@@ -68,3 +69,17 @@ page.Break({amount?})
 - This can be done on assingment
   - `var myvar = new bindObj(function(){console.log("myvar has been edited")})`
   - Or by just editing it's property
+
+## To sum up bindings in Vultvre with an example...
+```
+const page = require('./vltvre.js');
+var pg = new page("site/index.html") //set up the page
+
+pg.Input({bindto: "username"}) //bindto the "username" var
+
+pg.script(function(){
+  var username = new bindObj(function(){id("text").innerHTML = username.value}) //id("id") is an included function that is equivalent to "document.getElementById('id')"
+  //"username" becomes a bindable-object
+  //whenver it is changed, update the contents of the id "text" to the username
+})
+```
