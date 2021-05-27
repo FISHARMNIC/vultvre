@@ -66,5 +66,5 @@ page.Break({amount?})
 ---
 - To bind a variable to an output element, use the `action` property of the bindObj
 - This can be done on assingment
- - `var myvar = new bindObj(function(){console.log("myvar has been edited")})
+-  `var myvar = new bindObj(function(){console.log("myvar has been edited")})`
  - Or by just editing it's property
