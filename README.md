@@ -59,3 +59,12 @@ page.Break({amount?})
  - To change a bindable var's value, use `var.value`
   - This supports get and set
    - so `var.value = "10"` and `console.log(var.value)` work
+---
+- To bind an input element (not an output such as text) to a variable, use the `bindto` parameter
+- It must be the variables name as a string 
+ - `page.Input({bindto: "myvar"})`
+---
+- To bind a variable to an output element, use the `action` property of the bindObj
+- This can be done on assingment
+ - `var myvar = new bindObj(function(){console.log("myvar has been edited")})
+ - Or by just editing it's property
